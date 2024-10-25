@@ -1,0 +1,43 @@
+{
+  "accounts": {
+    "name": "accounts",
+    "description": "Accounts available for use",
+    "category": "Portfolio",
+    "searchCategory": "Portfolio",
+    "defaultViz": "table",
+    "endpoint": "accounts",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    },
+    "data": {
+      "table": {
+        "showAll": true
+      }
+    }
+  },
+  "holdings": {
+    "name": "holdings",
+    "description": "Holdings for portfolio",
+    "category": "Portfolio",
+    "searchCategory": "Portfolio",
+    "defaultViz": "table",
+    "endpoint": "holdings",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    },
+    "data": {
+      "table": {
+        "showAll": true
+      }
+    },
+     "params": [
+      {
+        "paramName": "account_id",
+        "label": "Account ID",
+        "type": "text"
+      }
+    ]
+  }
+}
