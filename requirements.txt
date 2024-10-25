@@ -1,3 +1,5 @@
 snaptrade-python-sdk
 fastapi
 pandas
+python-dotenv
+uvicorn
