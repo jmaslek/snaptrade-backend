@@ -1,14 +1,11 @@
 import json
 from pathlib import Path
-import os
-from contextlib import asynccontextmanager
-from typing import Optional
-from fastapi import FastAPI, Depends, Query
+
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from dotenv import load_dotenv
-from loguru import logger
-from utils import *
+from utils import get_snaptrade_client, show_accounts, return_holdings
+
 app = FastAPI()
 
 origins = [
@@ -37,17 +34,17 @@ def get_widgets():
         content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
     )
 
+
 @app.get("/")
 def hello_world():
-    return {"Hello":"Snaptrade Example Custom Backend"}
+    return {"Hello": "Snaptrade Example Custom Backend"}
+
 
 @app.get("/accounts")
 def get_user_accounts(snaptrade_client=Depends(get_snaptrade_client)):
     return JSONResponse(content=show_accounts(snaptrade_client))
 
+
 @app.get("/holdings")
-def get_user_holdings(account_id:str,
-                      snaptrade_client=Depends(get_snaptrade_client)):
-    return JSONResponse(
-        content=return_holdings(snaptrade_client, account_id)
-    )
+def get_user_holdings(account_id: str, snaptrade_client=Depends(get_snaptrade_client)):
+    return JSONResponse(content=return_holdings(snaptrade_client, account_id))

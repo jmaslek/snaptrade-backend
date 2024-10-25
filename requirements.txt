@@ -1,0 +1,3 @@
+snaptrade-python-sdk
+fastapi
+pandas
