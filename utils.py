@@ -34,7 +34,9 @@ def return_holdings(snaptrade, account_id):
         account_id=account_id, user_id=user_id, user_secret=user_secret
     )
     blahblah = []
+    total_value = 0
     for holding in holdings.body["positions"]:
+        value = holding["price"] * holding["units"]
         blahblah.append(
             {
                 "symbol": holding["symbol"]["symbol"]["symbol"],
@@ -46,6 +48,10 @@ def return_holdings(snaptrade, account_id):
                 "open_pnl": holding["open_pnl"],
                 "units": holding["units"],
                 "cost_basis": holding["average_purchase_price"],
+                "value": value
             }
         )
+        total_value += value
+    for b in blahblah:
+        b['weight'] = b['value'] / total_value
     return blahblah
