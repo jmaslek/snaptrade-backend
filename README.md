@@ -1,5 +1,8 @@
 # OpenBB SnapTrade Backend
 
+![1730305473514](https://github.com/user-attachments/assets/f847257e-94ea-496d-ae4f-d99f9d4b52be)
+
+
 This example backend integrates with [SnapTrade](https://snaptrade.com/) for pulling in your portfolio holdings.
 
 ### Prerequisites
